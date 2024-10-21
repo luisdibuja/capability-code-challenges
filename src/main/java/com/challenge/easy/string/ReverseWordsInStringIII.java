@@ -25,7 +25,16 @@ package com.challenge.easy.string;
 public class ReverseWordsInStringIII {
 
     public static String reverseWords(String s) {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        String[] words = s.split(" ");
+        for(int i=0; i<words.length; i++) {
+            sb.append(new StringBuilder(words[i]).reverse());
+            if(i < words.length -1) {
+                sb.append(" ");
+            }
+        }
+        return sb.toString();
+       
     }
 
     public static void main(String[] args) {

@@ -25,7 +25,23 @@ package com.challenge.easy.string;
 public class CheckSentenceIsPangram {
 
     public static boolean checkIfPangram(String sentence) {
-        return false;
+        boolean[] seen = new boolean[26];
+        int uniqueCount = 0;
+
+        for(char c : sentence.toCharArray()) {
+            int index = c - 'a';
+            if(!seen[index]) {
+                seen[index] = true;
+                uniqueCount++;
+                // Early termination if all letters are found
+                if(uniqueCount == 26) {
+                    return true;
+                }
+            }
+        }
+
+        return uniqueCount == 26;
+        
     }
 
     public static void main(String[] args) {
